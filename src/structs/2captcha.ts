@@ -179,7 +179,7 @@ export interface paramsCoordinates {
     lang?: string,
     pingback?: string,
     textinstructions?: string,
-    imginstrucation?: string
+    imginstrucations?: string
 }
 
 export interface paramsDataDome {
@@ -221,11 +221,31 @@ export interface paramsBoundingBox {
  * @param {string} data The solution to the captcha
  * @param {string} id The captcha ID
  */
-interface CaptchaAnswer {
-    /** The solution to the captcha */
-    data: string,
+
+interface CaptchaBaseAnswer {
     /** The ID of the captcha solve */
-    id: string
+    id: string;
+
+    /** The solution of the captcha */
+    data: any;
+}
+
+interface CaptchaAnswer extends CaptchaBaseAnswer {
+    /** The solution to the captcha if string  */
+    data: string,
+}
+
+/**
+ * Represents the answer for a captcha with coordinates.
+ */
+interface CaptchaCoordinatesAnswer extends CaptchaBaseAnswer  {
+    
+    /** The array of coordinates for the captcha. */
+    data: Array<{
+        x: string,
+        y: string
+    }>
+
 }
 
 /**
@@ -297,10 +317,10 @@ export class Solver {
      * Polls for  a captcha, finding out if it's been completed
      * @param {string} id Captcha ID
      * 
-     * @returns {Promise<CaptchaAnswer>}
+     * @returns {Promise<CaptchaBaseAnswer>}
      * @throws APIError
      */
-    private async pollResponse(id: string): Promise<CaptchaAnswer> {
+    private async pollResponse(id: string): Promise<CaptchaBaseAnswer> {
         const payload = {
             ...this.defaultPayload,
             action: "get",
@@ -944,7 +964,7 @@ export class Solver {
     *      console.log(err);
     *  })
     */
-    public async coordinates(params: paramsCoordinates): Promise<CaptchaAnswer> {
+    public async coordinates(params: paramsCoordinates): Promise<CaptchaCoordinatesAnswer> {
         checkCaptchaParams(params, "base64")
        
         const payload = {
