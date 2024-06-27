@@ -46,11 +46,11 @@ The easiest way to quickly integrate the [2Captcha](https://2captcha.com/) captc
 This package can be installed with NPM:
 
 ```sh
-npm install @2captcha/captcha-solver
+npm install 2captcha-ts
 ```
 or Yarn:
 ```sh
-yarn add @2captcha/captcha-solver
+yarn add 2captcha-ts
 ```
 
 ## Configuration
@@ -58,7 +58,7 @@ yarn add @2captcha/captcha-solver
 TwoCaptcha instance can be created like this:
 
 ```js
-const TwoCaptcha = require("@2captcha/captcha-solver")
+const TwoCaptcha = require("2captcha-ts")
 const solver = new TwoCaptcha.Solver("<Your 2captcha api key>")
 ```
 
