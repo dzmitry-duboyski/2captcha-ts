@@ -54,7 +54,6 @@ export class Server extends EventEmitter {
                     body += chunk.toString(); // convert Buffer to string
                 });
                 req.on('end', () => {
-                    console.log(body);
                     res.end('ok');
                 });
             }
