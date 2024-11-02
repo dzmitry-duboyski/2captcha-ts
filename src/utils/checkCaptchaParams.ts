@@ -16,8 +16,8 @@ const turnstileRequiredFields =   ['pageurl','sitekey']
 const base64RequiredFields =      ['body'] 
 const capyPuzzleRequiredFields =  ['captchakey']
 const dataDomeRequiredFields =    ['pageurl', 'captcha_url', 'userAgent', 'proxy', 'proxytype']
-const сyberSiARARequiredFields =  ['pageurl', 'master_url_id', 'userAgent']
-const mtСaptchaRequiredFields =   ['pageurl', 'sitekey']
+const cyberSiARARequiredFields =  ['pageurl', 'master_url_id', 'userAgent']
+const mtcaptchaRequiredFields =   ['pageurl', 'sitekey']
 const boundingBoxRequiredFields = ['image'] // and textinstructions or imginstructions
 const friendlyCaptchaFields =     ['pageurl','sitekey']
 
@@ -68,10 +68,10 @@ const getRequiredFildsArr = (method: string):Array<string> => {
       requiredFieldsArr = dataDomeRequiredFields
       break;
     case "cybersiara":
-      requiredFieldsArr = сyberSiARARequiredFields
+      requiredFieldsArr = cyberSiARARequiredFields
       break;
     case "mt_captcha":
-      requiredFieldsArr = mtСaptchaRequiredFields
+      requiredFieldsArr = mtcaptchaRequiredFields
       break;
     case "bounding_box":
       requiredFieldsArr = boundingBoxRequiredFields

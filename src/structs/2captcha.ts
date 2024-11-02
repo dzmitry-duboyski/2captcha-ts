@@ -879,7 +879,7 @@ export class Solver {
      * 
      * [Read more about Cloudflare Turnstile captcha](https://2captcha.com/2captcha-api#turnstile).
      * 
-     * @param {{ pageurl, sitekey, action, data, pingback, proxy, proxytype}} params The `сloudflareTurnstile` method takes arguments as an object. Thus, the `pageurl`, `sitekey` fields in the passed object are mandatory.
+     * @param {{ pageurl, sitekey, action, data, pingback, proxy, proxytype}} params The `cloudflareTurnstile` method takes arguments as an object. Thus, the `pageurl`, `sitekey` fields in the passed object are mandatory.
      * @param {string} params.pageurl 	Full `URL` of the page where you see the captcha.
      * @param {string} params.sitekey Is a value of `sitekey` parameter in the page source.
      * @param {string} params.action Value of optional `action` parameter you found on page.
@@ -928,7 +928,7 @@ export class Solver {
    /**
     * ### Solves a Coordinates captcha. 
     * 
-    * @param {{ body, imginstructions, textinstructions, language, lang, pingback }} params parameters Сoordinates Captcha as an object.
+    * @param {{ body, imginstructions, textinstructions, language, lang, pingback }} params parameters coordinates Captcha as an object.
     * @param {string} params.body Base64-encoded captcha image.
     * @param {string} params.imginstructions Base64-encoded image with instruction for solving captcha.
     * @param {string} params.textinstructions Text will be shown to worker to help him to solve the captcha correctly. For example: click on all objects in red color.
