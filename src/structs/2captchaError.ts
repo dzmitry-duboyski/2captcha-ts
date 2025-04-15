@@ -144,10 +144,8 @@ export class APIError extends Error {
             }; break;
             case "ERROR_PROXY_CONNECTION_FAILED": {
                 this.code = 34
-                this.message = "The proxy server was unable to load the captcha. This Proxy has been marked as bad, and will recieve an 'ERROR_BAD_PROXY' in future use."
+                this.message = "The proxy server was unable to load the captcha. This Proxy has been marked as bad, and will recieve an 'ERROR_BAD_PROXY' in future use. More details on https://2captcha.com/2captcha-api#list-of-resphp-errors"
             }; break;
-            // @Victor, I hate you. Debugging this took a minute or two, but those two minutes were *very* irritating.
-            // It doesn't follow 2captcha's error codes, and it's not documented in the 'Error Handling' tab of your API docs! :P 
             case "https://2captcha.com/blog/google-search-recaptcha": {
                 this.code = 35
                 this.message = "This captcha appears to be a Google Service Captcha (A special captcha that Google uses to protect their websites). Please provide a 'data-s' attribute in the CaptchaExtras of this function. View https://2captcha.com/blog/google-search-recaptcha for more information."
