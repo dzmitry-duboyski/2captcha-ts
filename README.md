@@ -545,21 +545,25 @@ solver.recaptcha({
     proxytype: 'login:password@123.123.123.123:3128'
 })
 ```
+
+
+> [![2captcha-proxy-baner-optimized](https://github.com/user-attachments/assets/7998e0c4-e08a-4f41-a56b-4f1ab6e31e11)](https://2captcha.com/proxy/?from=16653706)
+> **Solve CAPTCHAs faster and bypass restrictions — try our recommended residential proxies!** 
 ## Examples
 
 Examples of solving all supported captcha types are located in the [examples] directory.
 
 ## Useful articles
-* [How to bypass captcha using JavaScript](https://2captcha.com/blog/how-to-use-javascript-to-bypass-captcha#how-to-solve-and-bypass-a-captcha-with-javascript-using-npm-package-2captchacaptcha-solver)
-* [Bypassing Cloudflare Challenge with Puppeteer and 2Captcha](https://2captcha.com/blog/bypassing-cloudflare-challenge-with-puppeteer-and-2captcha)
-* [How to bypass Geetest v4 CAPTCHA](https://2captcha.com/blog/geetest-v4-support)
-* [Automatic reCAPTCHA V3 resolution - a tutorial for developers and customers](https://2captcha.com/blog/recaptcha-v3-automatic-resolution)
+* [How to bypass captcha using JavaScript](https://2captcha.com/blog/how-to-use-javascript-to-bypass-captcha#how-to-solve-and-bypass-a-captcha-with-javascript-using-npm-package-2captchacaptcha-solver/?from=16653706)
+* [Bypassing Cloudflare Challenge with Puppeteer and 2Captcha](https://2captcha.com/blog/bypassing-cloudflare-challenge-with-puppeteer-and-2captcha/?from=16653706)
+* [How to bypass Geetest v4 CAPTCHA](https://2captcha.com/blog/geetest-v4-support/?from=16653706)
+* [Automatic reCAPTCHA V3 resolution - a tutorial for developers and customers](https://2captcha.com/blog/recaptcha-v3-automatic-resolution/?from=16653706)
 * [Custom Slider Captcha Demo](https://github.com/2captcha/custom-slider-demo)
 * [Cloudflare Challenge page bypass code example](https://github.com/2captcha/cloudflare-demo)
 
 <!-- Shared links -->
 [post options]: https://2captcha.com/2captcha-api#normal_post
 [list of supported languages]: https://2captcha.com/2captcha-api#language
-[Buy residential proxies]: https://2captcha.com/proxy/residential-proxies
-[Quick start]: https://2captcha.com/proxy?openAddTrafficModal=true
+[Buy residential proxies]: https://2captcha.com/proxy/residential-proxies?from=16653706
+[Quick start]: https://2captcha.com/proxy?openAddTrafficModal=true&from=16653706
 [examples]: ./examples
