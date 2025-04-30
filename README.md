@@ -1,6 +1,10 @@
+<!--
 <p align="center">
   <img src="https://user-images.githubusercontent.com/38065632/280106746-36b3ccc1-b720-458d-9887-88d87b7dd66e.jpg">
 </p>
+-->
+
+![2captcha-ts-banner-optimized](https://github.com/user-attachments/assets/19436e98-3439-45f4-8e88-6cc446200fe9)
 
 ![](https://img.shields.io/npm/dt/2captcha-ts?color=00bd79)
 ![](https://img.shields.io/npm/v/2captcha-ts)
