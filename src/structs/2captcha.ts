@@ -4,6 +4,7 @@ import * as utils from "../utils/generic"
 import  getProviderData  from "./providers/providers"
 import { softId } from "./constants/constants"
 import checkCaptchaParams from "../utils/checkCaptchaParams"
+import renameParams from "../utils/renameParams"
 
 
 const provider = getProviderData ()
@@ -44,15 +45,15 @@ export interface paramsHCaptcha {
 
 // FixMe:data[key] - how to send this parameter
 export interface paramsFunCaptcha {
-  publickey: string,
-  pageurl: string,
-  surl?: string,
-  header_acao?: boolean,
-  pingback?: string,
-  proxy?: string,
-  proxytype?: string,
-  userAgent?: string,
-  data?: string
+    publickey: string,
+    pageurl: string,
+    surl?: string,
+    header_acao?: boolean,
+    pingback?: string,
+    proxy?: string,
+    proxytype?: string,
+    userAgent?: string,
+    data?: string
 }
 
 export interface paramsImageCaptcha {
@@ -219,6 +220,15 @@ export interface paramsBoundingBox {
     image: string,
     textinstructions?: string,
     imginstructions?: string,
+}
+
+export interface paramsCutcaptcha {
+    pageurl: string,
+    miseryKey: string,
+    apiKey: string,
+    pingback?: string,
+    proxy?: string,
+    proxytype?: string
 }
 
 /**
@@ -1196,37 +1206,51 @@ public async mtCaptcha(params: paramsMTCaptcha): Promise<CaptchaAnswer> {
 }
 
 /**
- * ### Solves Cutcaptcha
+ * ### Solves a Cutcaptcha.
  * 
- * @param {{ pageurl, sitekey, userAgent, pingback, proxy, proxytype}} params Parameters MTCaptcha as an object.
- * @param {string} params.pageurl 	Full `URL` of the page where you see the captcha.
- * @param {string} params.sitekey TThe value of `sitekey` parameter found on the page.  
- * @param {string} params.pingback URL for pingback (callback) response that will be sent when captcha is solved. URL should be registered on the server. [More info here](https://2captcha.com/2captcha-api#pingback).
- * @param {string} params.proxy Format: `login:password@123.123.123.123:3128` You can find more info about proxies [here](https://2captcha.com/2captcha-api#proxies).
- * @param {string} params.proxytype Type of your proxy: `HTTP`, `HTTPS`, `SOCKS4`, `SOCKS5`.
+ * Use this method to solve Cutcaptcha. Returns the response in JSON.
+ * [Read more about Cutcaptcha Method](https://2captcha.com/2captcha-api#cutcaptcha).
  * 
- * @example 
+ * @param {{ pageurl, miseryKey, apiKey, pingback, proxy, proxytype }} params Parameters for solving Cutcaptcha as an object.
+ * @param {string} params.pageurl The URL where the captcha is located.
+ * @param {string} params.miseryKey The value of `CUTCAPTCHA_MISERY_KEY` variable defined on page.
+ * @param {string} params.apiKey The value of `data-apikey` attribute of iframe's body. Also the name of javascript file included on the page
+ * @param {string} [params.pingback] Optional param. URL for pingback (callback) response when captcha is solved.
+ * @param {string} [params.proxy] Optional param. Proxy to use while solving the captcha. Format: `login:password@123.123.123.123:3128`.
+ * @param {string} [params.proxytype] Optional param. Type of your proxy: `HTTP`, `HTTPS`, `SOCKS4`, `SOCKS5`.
+ * 
+ * @returns {Promise<CaptchaAnswer>} The result from the solve.
+ * @throws APIError
+ * 
+ * @example
  * solver.cutCaptcha({
- *   pageurl: "https://service.mtcaptcha.com/mtcv1/demo/index.html",
- *   sitekey: "MTPublic-DemoKey9M"
+ *   pageurl: "https://mysite.com/page/with/cutcaptcha",
+ *   miseryKey: "098e6a849af406142e3150dbf4e6d0538db2b51f", 
+ *   apiKey: "SAs61IAI",
  * })
  * .then((res) => {
- *   console.log(res);
- *  })
+ *     console.log(res);
+ * })
  * .catch((err) => {
- *   console.log(err);
+ *     console.log(err);
  * })
  */
-public async cutCaptcha(params: paramsMTCaptcha): Promise<CaptchaAnswer> {
-    checkCaptchaParams(params, "mt_captcha")
+public async cutCaptcha(params: paramsCutcaptcha): Promise<CaptchaAnswer> {
+    params = renameParams(params)
+    checkCaptchaParams(params, "cutcaptcha")
 
     const payload = {
         ...params,
-        method: "mt_captcha",
+        method: "cutcaptcha",
         ...this.defaultPayload,
     }
 
-    const response = await fetch(this.in + utils.objectToURI(payload))
+    const URL = this.in
+    const response = await fetch(URL, {
+        body: JSON.stringify(payload),
+        method: "post",
+        headers: {'Content-Type': 'application/json'}
+    })
     const result = await response.text()
 
     let data;

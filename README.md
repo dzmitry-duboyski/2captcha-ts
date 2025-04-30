@@ -38,6 +38,7 @@ The easiest way to quickly integrate the [2Captcha](https://2captcha.com/) captc
     - [MTCaptcha](#mtcaptcha)
     - [Friendly Captcha](#friendly-captcha)
     - [Bounding Box Method](#bounding-box-method)
+    - [Cutcaptcha](#cutcaptcha)
   - [Other methods](#other-methods)
     - [goodReport](#goodreport)
     - [badReport](#badreport)
@@ -471,6 +472,26 @@ solver.boundingBox({
 })
 .catch((err) => {
     console.log(err);
+})
+```
+
+### Cutcaptcha
+
+<sup>[API method description.](https://2captcha.com/2captcha-api#cutcaptcha)</sup>
+
+Use this method to solve Cutcaptcha. Returns the response in JSON.
+
+```js
+solver.cutCaptcha({
+    pageurl: "https://mysite.com/page/with/cutcaptcha",
+    misery_key: "098e6a849af406142e3150dbf4e6d0538db2b51f", 
+    api_key: "SAs61IAI",
+})
+.then((res) => {
+console.log(res);
+})
+.catch((err) => {
+console.log(err);
 })
 ```
 
