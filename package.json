@@ -41,7 +41,8 @@
     "CyberSiARA",
     "MTCaptcha",
     "Bounding Box Method",
-    "Friendly Captcha"
+    "Friendly Captcha",
+    "CutCaptcha"
   ],
   "scripts": {
     "build": "tsc && node ./dist/index.js",
