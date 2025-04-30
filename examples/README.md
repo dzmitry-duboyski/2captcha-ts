@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/9f74bdef-5925-4de3-8bed-4b030b7d5749)
+![2captcha-ts-examples](https://github.com/user-attachments/assets/b36b4c94-2853-49dd-b8e4-a3feee0ff383)
 
 # Examples for 2captcha-ts
 
